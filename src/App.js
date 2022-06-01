@@ -4,7 +4,8 @@ import './App.css'
 import Input from './Form/Input'
 import Contato from './models/contato.model'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Button, FormLabel } from 'react-bootstrap'
+import { Button, Container, FormLabel, Table } from 'react-bootstrap'
+import TableContato from './table/table'
 
 const App = () => {
   const formRef = useRef(null)
@@ -32,6 +33,7 @@ const App = () => {
 
         <Button className='mt-2' variant="danger"type="submit">Save</Button>
       </Form>
+      <TableContato/>
     </div>
   )
 }
