@@ -26,10 +26,10 @@ const App = () => {
       <Form ref={formRef} onSubmit={handleFormSubmit} className="justify-between">
         <FormLabel>Cadastro:</FormLabel>
         <Input className='mt-2' name="name" placeholder="Insert your name"/>
-        <Input className='mt-2' name="tel"  placeholder="Tel"/>
+        <Input className='mt-2' name="tel" type = "tel"  placeholder="Tel"/>
         <Input className='mt-2' name="city"  placeholder="City"/>
         <Input className='mt-2' name="state"  placeholder="State"/>
-        <Input className='mt-2'name="country"  placeholder="Country"/>
+        <Input className='mt-2' name="country"  placeholder="Country"/>
 
         <Button className='mt-2' variant="danger"type="submit">Save</Button>
       </Form>
