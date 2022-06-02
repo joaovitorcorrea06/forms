@@ -15,8 +15,8 @@ function TableContato (props) {
       setExibirModal(false);
     }
 
-    function deleteIndex(dados){
-      localStorage.removeItem(dados);
+    function deleteIndex(){
+      localStorage.removeItem();
 
     }
 
@@ -56,10 +56,13 @@ function TableContato (props) {
             
             <Modal show={exibirModal}  onHide={handleFecharModal}>
             <Modal.Header closeButton>
-                <Modal.Title>DADOS:</Modal.Title>
+                <Modal.Title><label>Dados</label></Modal.Title>
             </Modal.Header>
               <Form className="justify-between">
                 <FormLabel>Cadastro:</FormLabel>
+                <p>Nome: {dados.name}</p>
+                <p>Telefone: {dados.tel}</p>
+                <p>City: {dados.city}</p>
                 {/* <Input className='mt-2' name="name" type = "text" placeholder={dados.name}/>
                 <Input className='mt-2' name="tel" type = "tel"  placeholder={dados.tel}/>
                 <Input className='mt-2' name="city" type = "text" placeholder={dados.city}/>

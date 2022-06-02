@@ -12,6 +12,13 @@ const App = () => {
   const [listaContatos, setListaContatos] = useState([]);
   const [exibirModal, setExibirModal] = useState (false);
 
+  const id = 0;
+  
+  function geraId(){ 
+    id = id + 1;
+    return id;
+  }
+
   function handleAbrirModal(event) {
     event.preventDefault();
     setExibirModal(true);
@@ -26,11 +33,15 @@ const App = () => {
   const handleFormSubmit = data => {
     console.log(data);
 
+    // let contatosDb=localStorage['contatos'];
     let contatosDb = JSON.parse(localStorage['contatos']);
 
     if (!contatosDb){
       contatosDb = [];
     } 
+    // else{
+    //   let contatosDb = JSON.parse(localStorage['contatos']);
+    // }
   
     contatosDb.push(data);
     //  const contatos = contatosDb ? JSON.parse(contatosDb) : [];
@@ -58,6 +69,7 @@ const App = () => {
       </Modal.Header>
         <Form ref={formRef} onSubmit={handleFormSubmit} className="justify-between">
           <FormLabel>Info:</FormLabel>
+          <Input disabled className='mt-2' name="id"  placeholder={id}/>
           <Input className='mt-2' name="name"  placeholder="Insert your name"/>
           <Input className='mt-2' name="tel" type = "tel"  placeholder="Tel"/>
           <Input className='mt-2' name="city"  placeholder="City"/>
