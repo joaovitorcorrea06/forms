@@ -28,6 +28,12 @@ const App = () => {
     localStorage['contatos'] = JSON.stringify(contatosDb);
     setListaContatos(contatosDb);
 
+    formRef.current.setFieldValue('name', '');
+    formRef.current.setFieldValue('tel', '');
+    formRef.current.setFieldValue('city', '');
+    formRef.current.setFieldValue('state', '');
+    formRef.current.setFieldValue('country', '');
+
   }
 
   return (
