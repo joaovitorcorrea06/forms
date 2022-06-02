@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Form } from '@unform/web'
 import './App.css'
 import Input from './Form/Input'
@@ -8,16 +8,25 @@ import { Button, Container, FormLabel, Table } from 'react-bootstrap'
 import TableContato from './table/table'
 
 const App = () => {
+
+  const[listaContatos, setListaContatos] = useState([]);
+
   const formRef = useRef(null)
 
   const handleFormSubmit = data => {
-    console.log(data);
+    // console.log(data);
 
-    //  const contatosDb = localStorage['contatos'];
+    let contatosDb = JSON.parse(localStorage['contatos']);
+    if (!contatosDb){
+      contatosDb = [];
+    }
+  
+    contatosDb.push(data);
     //  const contatos = contatosDb ? JSON.parse(contatosDb) : [];
 
     //  contatos.push(new Contato(formRef.getData(data)));
-    localStorage['contatos'] = JSON.stringify(data);
+    localStorage['contatos'] = JSON.stringify(contatosDb);
+    setListaContatos(contatosDb);
 
   }
 
@@ -33,7 +42,7 @@ const App = () => {
 
         <Button className='mt-2' variant="danger"type="submit">Save</Button>
       </Form>
-      <TableContato/>
+      <TableContato dados={listaContatos} />
     </div>
   )
 }

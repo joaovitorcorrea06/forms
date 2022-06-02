@@ -1,8 +1,15 @@
+import { useState } from "react";
 import {Table, Container} from "react-bootstrap";
 
-function TableContato () {
+function TableContato (props) {
 
-    let listaContatos = JSON.parse(localStorage.getItem("contatos"));
+    const [carregar, setCarregar] = useState(true);
+
+
+
+    let listaContatos = JSON.parse(localStorage.getItem('contatos'));
+
+    // console.log(dados)
 
     return(
     <Container fluid>
@@ -17,13 +24,21 @@ function TableContato () {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{listaContatos.name}</td>
+          {listaContatos.map(dados =>
+            <tr>
+            <td>{dados.name}</td>
+            <td>{dados.tel}</td>
+            <td>{dados.city}</td>
+            <td>{dados.state}</td>
+            <td>{dados.country}</td>
+            </tr>
+          )}
+            {/* <td>{listaContatos.name}</td>
             <td>{listaContatos.tel}</td>
             <td>{listaContatos.city}</td>
             <td>{listaContatos.state}</td>
-            <td>{listaContatos.country}</td>
-          </tr>
+            <td>{listaContatos.country}</td> */}
+            {/* <td>oi</td> */}
         </tbody>
         </Table>
       </Container>
