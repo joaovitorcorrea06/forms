@@ -17,6 +17,7 @@ function TableContato (props) {
 
     function deleteIndex(){
       localStorage.removeItem();
+      
 
     }
 

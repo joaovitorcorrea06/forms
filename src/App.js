@@ -54,7 +54,9 @@ const App = () => {
 
   return (
     <div className='text-center'>
-      <Button onClick={handleAbrirModal} className='mt-2 mb-2'>Cadastrar</Button>
+      <div className="">
+      <Button onClick={handleAbrirModal} className='mt-2 mb-2 ' size="lg">Cadastrar</Button>
+      </div>
 
       <Modal show={exibirModal}  onHide={handleFecharModal} className='text-center' >
       <Modal.Header closeButton>
