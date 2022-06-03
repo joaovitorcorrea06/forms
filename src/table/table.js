@@ -15,10 +15,8 @@ function TableContato (props) {
       setExibirModal(false);
     }
 
-    function deleteIndex(){
-      localStorage.removeItem();
-      
-
+    function deleteIndex(index){
+      // localStorage.removeItem("contatos",localStorage.key(index));
     }
 
     let listaContatos = JSON.parse(localStorage.getItem('contatos'));
@@ -30,6 +28,7 @@ function TableContato (props) {
         <Table bordered striped hover variant="dark">
         <thead>
           <tr>
+            <th>Id</th>
             <th>Name</th>
             <th>Number</th>
             <th>City</th>
@@ -42,6 +41,7 @@ function TableContato (props) {
         <tbody>
           {listaContatos.map(dados =>
             <tr>
+            <td>{dados.id}</td>
             <td>{dados.name}</td>
             <td>{dados.tel}</td>
             <td>{dados.city}</td>
