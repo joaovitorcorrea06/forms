@@ -4,7 +4,7 @@ import './App.css'
 import Input from './Form/Input'
 import Contato from './models/contato.model'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Button, Container, FormLabel, Modal, Table } from 'react-bootstrap'
+import { Button, FormLabel, Modal } from 'react-bootstrap'
 import TableContato from './table/table'
 
 const App = () => {
@@ -12,7 +12,6 @@ const App = () => {
   const [listaContatos, setListaContatos] = useState([]);
   const [exibirModal, setExibirModal] = useState (false);
   const [showTable, setShowTable] = useState (false);
-  const [id,setId] = useState (0);
 
     useEffect(() => {
       start();
@@ -36,7 +35,7 @@ const App = () => {
     }
   }
 
-  function handleAbrirModal(event,id) {
+  function handleAbrirModal(event) {
     event.preventDefault();
     setExibirModal(true);
 
