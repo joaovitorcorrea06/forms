@@ -4,6 +4,8 @@ import Input from "../Form/Input";
 
 function TableContato (props) {
 
+    let listaContatos = JSON.parse(localStorage.getItem('contatos'));
+
     const [exibirModal, setExibirModal] = useState (false);
 
     function handleAbrirModal(event) {
@@ -16,10 +18,12 @@ function TableContato (props) {
     }
 
     function deleteIndex(index){
-      // localStorage.removeItem("contatos",localStorage.key(index));
+      delete listaContatos[index];
+      //salvar o novo no storage
+      
     }
 
-    let listaContatos = JSON.parse(localStorage.getItem('contatos'));
+
 
     // console.log(dados)
 
@@ -28,7 +32,6 @@ function TableContato (props) {
         <Table bordered striped hover variant="dark">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Name</th>
             <th>Number</th>
             <th>City</th>
@@ -39,9 +42,8 @@ function TableContato (props) {
           </tr>
         </thead>
         <tbody>
-          {listaContatos.map(dados =>
+          {listaContatos.map((dados,index) =>
             <tr>
-            <td>{dados.id}</td>
             <td>{dados.name}</td>
             <td>{dados.tel}</td>
             <td>{dados.city}</td>
@@ -52,7 +54,7 @@ function TableContato (props) {
             >?</Button></td>
 
             <td><Button variant="danger"
-            onClick={deleteIndex}
+            onClick={()=>deleteIndex(index)}
             >X</Button></td>
             
             <Modal show={exibirModal}  onHide={handleFecharModal}>

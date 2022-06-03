@@ -12,7 +12,7 @@ const App = () => {
   const [listaContatos, setListaContatos] = useState([]);
   const [exibirModal, setExibirModal] = useState (false);
   const [showTable, setShowTable] = useState (false);
-  const [id,setId] = useState (1);
+  const [id,setId] = useState (0);
 
     useEffect(() => {
       start();
@@ -36,9 +36,10 @@ const App = () => {
     }
   }
 
-  function handleAbrirModal(event) {
+  function handleAbrirModal(event,id) {
     event.preventDefault();
     setExibirModal(true);
+
   }
 
   function handleFecharModal(){
@@ -48,7 +49,6 @@ const App = () => {
   const formRef = useRef(null)
 
   const handleFormSubmit = data => {
-    setId(id + 1)
     console.log(data);
 
     let contatosDb= localStorage['contatos'];
@@ -77,7 +77,7 @@ const App = () => {
     formRef.current.setFieldValue('state', '');
     formRef.current.setFieldValue('country', '');
     setExibirModal(false);
-    setId({id}+1);
+    // setId({id}+1);
 
   }
 
@@ -93,7 +93,6 @@ const App = () => {
       </Modal.Header>
         <Form ref={formRef} onSubmit={handleFormSubmit} className="justify-between">
           <FormLabel>Data:</FormLabel>
-          <Input className='mt-2' disabled name="id"  placeholder={1}/>
           <Input className='mt-2' name="name"  placeholder="Insert your name"/>
           <Input className='mt-2' name="tel" type = "tel"  placeholder="Tel"/>
           <Input className='mt-2' name="city"  placeholder="City"/>
