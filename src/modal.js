@@ -10,7 +10,7 @@ function ModalRegister(props){
     const { register, handleSubmit } = useForm();
 
     function handleFecharModal(){
-        setExibirModal(false);
+       setExibirModal(false);
     }
   
     // const formRef = useRef(null)
@@ -40,14 +40,14 @@ function ModalRegister(props){
         // formRef.current.setFieldValue('city', '');
         // formRef.current.setFieldValue('state', '');
         // formRef.current.setFieldValue('country', '');
-        setExibirModal(false);
+        props.exibirModal(false);
         // setId({id}+1);
     
       }
 
 
 return(
-    <Modal show={props.exibirModal}  onHide={handleFecharModal} className='text-center' >
+    <Modal show={props.exibirModal}  onHide={props.fecharModal} className='text-center' >
        <Modal.Header closeButton>
            <Modal.Title>Register:</Modal.Title>
        </Modal.Header>

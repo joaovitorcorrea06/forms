@@ -39,11 +39,7 @@ const App = () => {
 
   function handleAbrirModal(event) {
     setExibirModal(true);
-
   }
-
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
 
 
   return ( 
@@ -52,7 +48,7 @@ const App = () => {
       <Button onClick={handleAbrirModal} className='mt-2 mb-2 ' size="lg">Register</Button>
       </div>
 
-      <ModalRegister exibirModal={exibirModal}/>
+      <ModalRegister exibirModal={exibirModal} fecharModal={exibirModal}/>
 
       {showTable ? <TableContato dados={listaContatos}></TableContato> : 
       <div>
