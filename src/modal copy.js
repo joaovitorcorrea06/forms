@@ -1,13 +1,11 @@
 import { useRef, useState } from "react";
 import { Button, Form, FormLabel, Modal } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import Input from "./Form/Input";
 
 function ModalRegister(props){
 
     const [exibirModal, setExibirModal] = useState (false);
     const [listaContatos, setListaContatos] = useState([]);
-
-    const { register, handleSubmit } = useForm();
 
     function handleFecharModal(){
         setExibirModal(false);
@@ -15,7 +13,7 @@ function ModalRegister(props){
   
     // const formRef = useRef(null)
 
-    const onSubmit = data => {
+    const handleFormSubmit = data => {
     
         let contatosDb= localStorage['contatos'];
         // let contatosDb = JSON.parse(localStorage['contatos']);
@@ -51,19 +49,17 @@ return(
        <Modal.Header closeButton>
            <Modal.Title>Register:</Modal.Title>
        </Modal.Header>
-       <Modal.Body className='text-center'>
-         <Form onSubmit={handleSubmit(onSubmit)} className="justify-between">
-           <label>Data:</label><br></br>
-           <input className='mt-2'{...register("name")}  placeholder="Insert your name"/><br></br>
-           <input className='mt-2'{...register("tel")} placeholder="Tel" /><br></br>
-           <input className='mt-2'{...register("city")} placeholder="City"/><br></br>
-           <input className='mt-2'{...register("state")}  placeholder="State"/><br></br>
-           <input className='mt-2'{...register("country")}  placeholder="Country"/><br></br>
+         <Form onSubmit={handleFormSubmit} className="justify-between">:
+           <FormLabel>Data:</FormLabel>
+           <Input className='mt-2' name="name"  placeholder="Insert your name"/>
+           <Input className='mt-2' name="tel" type = "tel"  placeholder="Tel"/>
+           <Input className='mt-2' name="city"  placeholder="City"/>
+           <Input className='mt-2' name="state" placeholder="State"/>
+           <Input className='mt-2' name="country"  placeholder="Country"/> 
 
-           <button className='mt-2 mb-2' variant="danger" type="submit">Save</button>
+           <Button className='mt-2 mb-2' variant="danger" type="submit">Save</Button>
         </Form>
-      </Modal.Body>
-      </Modal> 
+      </Modal>
 )
 }
 export default ModalRegister;

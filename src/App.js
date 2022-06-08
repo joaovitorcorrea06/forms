@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, FormLabel, Modal } from 'react-bootstrap'
 import TableContato from './table/table'
 import ModalRegister from './modal'
+import { useForm } from 'react-hook-form'
 
 const App = () => {
 
@@ -40,6 +41,9 @@ const App = () => {
     setExibirModal(true);
 
   }
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
 
 
   return ( 
