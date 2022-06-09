@@ -52,8 +52,8 @@ const App = () => {
 
       {showTable ? <TableContato dados={listaContatos}></TableContato> : 
       <div>
-      <h1>Your list is empty!</h1>
-      <p>Register a contact to continue</p>
+      <h1 className='glitch'>Your list is empty!</h1>
+      <p className='glitch'>Register a contact to continue</p>
       </div>
       }
         

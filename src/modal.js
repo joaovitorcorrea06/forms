@@ -36,7 +36,7 @@ function ModalRegister(props){
         // formRef.current.setFieldValue('city', '');
         // formRef.current.setFieldValue('state', '');
         // formRef.current.setFieldValue('country', '');
-        props.exibirModal(false);
+        props.fecharModal();
         // setId({id}+1);
     
       }
