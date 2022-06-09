@@ -4,14 +4,10 @@ import { useForm } from "react-hook-form";
 
 function ModalRegister(props){
 
-    const [exibirModal, setExibirModal] = useState (false);
     const [listaContatos, setListaContatos] = useState([]);
 
     const { register, handleSubmit } = useForm();
 
-    function handleFecharModal(){
-       setExibirModal(false);
-    }
   
     // const formRef = useRef(null)
 

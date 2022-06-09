@@ -37,7 +37,7 @@ const App = () => {
     }
   }
 
-  function handleAbrirModal(event) {
+  function handleAbrirModal() {
     setExibirModal(true);
   }
 
@@ -48,7 +48,7 @@ const App = () => {
       <Button onClick={handleAbrirModal} className='mt-2 mb-2 ' size="lg">Register</Button>
       </div>
 
-      <ModalRegister exibirModal={exibirModal} fecharModal={exibirModal}/>
+      <ModalRegister exibirModal={exibirModal} fecharModal={()=> setExibirModal(false)}/>
 
       {showTable ? <TableContato dados={listaContatos}></TableContato> : 
       <div>
