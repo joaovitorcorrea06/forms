@@ -33,7 +33,7 @@ function TableContato () {
           </tr>
         </thead>
         <tbody>
-          {listaContatos.map((dados) =>
+          {listaContatos.map((dados,index) =>
             <tr>
             <td>{dados.name}</td>
             <td>{dados.tel}</td>
@@ -45,7 +45,7 @@ function TableContato () {
             >?</Button></td>
 
             <td><Button variant="danger"
-            // onClick={deleteIndex={contato: dados.index}} 
+            // onClick={deleteIndex={contato: index }} 
             >X</Button></td>
             
             <Modal show={exibirModal}  onHide={handleFecharModal}>
