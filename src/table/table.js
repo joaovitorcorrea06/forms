@@ -1,8 +1,8 @@
 import { useState } from "react";
 import {Table, Container, Button, Modal, FormLabel, Form} from "react-bootstrap";
-import Input from "../Form/Input";
+import deleteIndex from "../Form/deleteIndex";
 
-function TableContato (props) {
+function TableContato () {
 
     let listaContatos = JSON.parse(localStorage.getItem('contatos'));
 
@@ -16,15 +16,6 @@ function TableContato (props) {
     function handleFecharModal(){
       setExibirModal(false);
     }
-
-    function deleteIndex(index){
-      delete listaContatos[index];
-      //salvar o novo no storage
-      
-    }
-
-
-
     // console.log(dados)
 
     return(
@@ -42,7 +33,7 @@ function TableContato (props) {
           </tr>
         </thead>
         <tbody>
-          {listaContatos.map((dados,index) =>
+          {listaContatos.map((dados) =>
             <tr>
             <td>{dados.name}</td>
             <td>{dados.tel}</td>
@@ -54,7 +45,7 @@ function TableContato (props) {
             >?</Button></td>
 
             <td><Button variant="danger"
-            onClick={()=>deleteIndex(index)}
+            // onClick={deleteIndex={contato: dados.index}} 
             >X</Button></td>
             
             <Modal show={exibirModal}  onHide={handleFecharModal}>
