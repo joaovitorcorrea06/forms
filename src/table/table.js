@@ -9,8 +9,9 @@ function TableContato () {
     const [exibirModal, setExibirModal] = useState (false);
 
     useEffect(() => {
-      // geraId(id);
+      
     }, [exibirModal]);
+  
 
     function handleAbrirModal(event) {
       event.preventDefault();
