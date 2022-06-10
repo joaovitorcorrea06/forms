@@ -34,6 +34,7 @@ function TableContato () {
         </thead>
         <tbody>
           {listaContatos.map((dados,index) =>
+          {if (dados != null) 
             <tr>
             <td>{dados.name}</td>
             <td>{dados.tel}</td>
@@ -67,7 +68,7 @@ function TableContato () {
               </Form>
             </Modal>
             </tr>
-          )}
+          })}
 
             {/* <td>{listaContatos.name}</td>
             <td>{listaContatos.tel}</td>
