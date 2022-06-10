@@ -18,7 +18,7 @@ const App = () => {
     useEffect(() => {
       start();
       // geraId(id);
-    }, [listaContatos]);
+    }, [listaContatos,showTable]);
 
     // function geraId(id){
     //   id +=1;

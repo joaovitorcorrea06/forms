@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {Table, Container, Button, Modal, FormLabel, Form} from "react-bootstrap";
 import deleteIndex from "../Form/deleteIndex";
 
@@ -7,6 +7,10 @@ function TableContato () {
     let listaContatos = JSON.parse(localStorage.getItem('contatos'));
 
     const [exibirModal, setExibirModal] = useState (false);
+
+    useEffect(() => {
+      // geraId(id);
+    }, [exibirModal]);
 
     function handleAbrirModal(event) {
       event.preventDefault();
@@ -34,7 +38,7 @@ function TableContato () {
         </thead>
         <tbody>
           {listaContatos.map((dados,index) =>
-          {if (dados != null) 
+          {if (dados != null) return(
             <tr>
             <td>{dados.name}</td>
             <td>{dados.tel}</td>
@@ -68,7 +72,7 @@ function TableContato () {
               </Form>
             </Modal>
             </tr>
-          })}
+          )})}
 
             {/* <td>{listaContatos.name}</td>
             <td>{listaContatos.tel}</td>
