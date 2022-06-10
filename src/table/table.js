@@ -45,7 +45,7 @@ function TableContato () {
             >?</Button></td>
 
             <td><Button variant="danger"
-            // onClick={deleteIndex={contato: index }} 
+            onClick={()=>deleteIndex(index)} 
             >X</Button></td>
             
             <Modal show={exibirModal}  onHide={handleFecharModal}>

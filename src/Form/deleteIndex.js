@@ -1,7 +1,8 @@
-function deleteIndex(props){
+function deleteIndex(index){
     const contatosDb = localStorage['contatos'];
     let contatos = contatosDb ? JSON.parse(contatosDb) : [];
-    contatos = contatos.filter(contato => contato.index !== props.contato);
+    if (contatos.length > 0)
+      contatos = contatos.map((contato,index) => {if (index !== index) return contato});
     localStorage['contatos'] = JSON.stringify(contatos);
   }
 
