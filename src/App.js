@@ -1,13 +1,9 @@
-import React, { startTransition, useEffect, useRef, useState } from 'react'
-import { Form } from '@unform/web'
+import React, { useEffect, useState } from 'react'
 import './App.css'
-import Input from './Form/Input'
-import Contato from './models/contato.model'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Button, FormLabel, Modal } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import TableContato from './table/table'
 import ModalRegister from './modal'
-import { useForm } from 'react-hook-form'
 
 const App = () => {
 
